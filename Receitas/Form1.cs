@@ -43,11 +43,18 @@ namespace Receitas
         {
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=;");
-                strSQL = "INSERT INTO receita (NOME, DESCRICAO) values (@NOME, @DESCRICAO)";
+                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=110688;");
+                strSQL = "INSERT INTO " +
+                    "receitas (NOME, DESCRICAO, tempo_preparacao, grau_dificuldade, numero_pressoas, categoria) " +
+                    "values (@NOME, @DESCRICAO,@tempo_preparacao, @grau_dificuldade, @numero_pressoas, @categoria)";
                 comando = new MySqlCommand(strSQL, conexao);
-                comando.Parameters.AddWithValue("@NOME", textBoxNome);
-                comando.Parameters.AddWithValue("@DSCRICAO", richTextBoxDesc);
+                comando.Parameters.AddWithValue("@NOME", textBoxNome.Text);
+                comando.Parameters.AddWithValue("@DESCRICAO", richTextBoxDesc.Text);
+                comando.Parameters.AddWithValue("@tempo_preparacao", textBoxTempoPrep.Text);
+                comando.Parameters.AddWithValue("@grau_dificuldade", cBGrauDificuldade.Text);
+                comando.Parameters.AddWithValue("@numero_pressoas", cBNumeroPessoas.Text);
+                comando.Parameters.AddWithValue("@categoria", cBCategoria.Text);
+
                 conexao.Open();
                 comando.ExecuteNonQuery();
             }

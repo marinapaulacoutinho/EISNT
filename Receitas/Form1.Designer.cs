@@ -32,16 +32,16 @@ namespace Receitas
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.textBoxTempoPrep = new System.Windows.Forms.TextBox();
             this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
-            this.textBoxGrauDificuldade = new System.Windows.Forms.TextBox();
-            this.textBoxNumeroPessoas = new System.Windows.Forms.TextBox();
-            this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.lbNome = new System.Windows.Forms.Label();
             this.lbTempoPrep = new System.Windows.Forms.Label();
             this.lbNumeroPessoas = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
-            this.lbGrauDificuldade = new System.Windows.Forms.Label();
             this.lbDescricao = new System.Windows.Forms.Label();
             this.buttonGravar = new System.Windows.Forms.Button();
+            this.cBGrauDificuldade = new System.Windows.Forms.ComboBox();
+            this.cBNumeroPessoas = new System.Windows.Forms.ComboBox();
+            this.cBCategoria = new System.Windows.Forms.ComboBox();
+            this.lbGrauDificuldade = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxNome
@@ -65,27 +65,6 @@ namespace Receitas
             this.richTextBoxDesc.Size = new System.Drawing.Size(533, 233);
             this.richTextBoxDesc.TabIndex = 2;
             this.richTextBoxDesc.Text = "";
-            // 
-            // textBoxGrauDificuldade
-            // 
-            this.textBoxGrauDificuldade.Location = new System.Drawing.Point(143, 93);
-            this.textBoxGrauDificuldade.Name = "textBoxGrauDificuldade";
-            this.textBoxGrauDificuldade.Size = new System.Drawing.Size(100, 23);
-            this.textBoxGrauDificuldade.TabIndex = 3;
-            // 
-            // textBoxNumeroPessoas
-            // 
-            this.textBoxNumeroPessoas.Location = new System.Drawing.Point(143, 132);
-            this.textBoxNumeroPessoas.Name = "textBoxNumeroPessoas";
-            this.textBoxNumeroPessoas.Size = new System.Drawing.Size(100, 23);
-            this.textBoxNumeroPessoas.TabIndex = 4;
-            // 
-            // textBoxCategoria
-            // 
-            this.textBoxCategoria.Location = new System.Drawing.Point(143, 174);
-            this.textBoxCategoria.Name = "textBoxCategoria";
-            this.textBoxCategoria.Size = new System.Drawing.Size(100, 23);
-            this.textBoxCategoria.TabIndex = 5;
             // 
             // lbNome
             // 
@@ -124,15 +103,6 @@ namespace Receitas
             this.lbCategoria.TabIndex = 9;
             this.lbCategoria.Text = "Categoria";
             // 
-            // lbGrauDificuldade
-            // 
-            this.lbGrauDificuldade.AutoSize = true;
-            this.lbGrauDificuldade.Location = new System.Drawing.Point(12, 96);
-            this.lbGrauDificuldade.Name = "lbGrauDificuldade";
-            this.lbGrauDificuldade.Size = new System.Drawing.Size(111, 15);
-            this.lbGrauDificuldade.TabIndex = 11;
-            this.lbGrauDificuldade.Text = "Grau de Dificuldade";
-            // 
             // lbDescricao
             // 
             this.lbDescricao.AutoSize = true;
@@ -152,11 +122,65 @@ namespace Receitas
             this.buttonGravar.UseVisualStyleBackColor = true;
             this.buttonGravar.Click += new System.EventHandler(this.buttonGravar_Click);
             // 
+            // cBGrauDificuldade
+            // 
+            this.cBGrauDificuldade.FormattingEnabled = true;
+            this.cBGrauDificuldade.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "4",
+            "5"});
+            this.cBGrauDificuldade.Location = new System.Drawing.Point(143, 93);
+            this.cBGrauDificuldade.Name = "cBGrauDificuldade";
+            this.cBGrauDificuldade.Size = new System.Drawing.Size(37, 23);
+            this.cBGrauDificuldade.TabIndex = 14;
+            // 
+            // cBNumeroPessoas
+            // 
+            this.cBNumeroPessoas.FormattingEnabled = true;
+            this.cBNumeroPessoas.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cBNumeroPessoas.Location = new System.Drawing.Point(143, 132);
+            this.cBNumeroPessoas.Name = "cBNumeroPessoas";
+            this.cBNumeroPessoas.Size = new System.Drawing.Size(37, 23);
+            this.cBNumeroPessoas.TabIndex = 15;
+            // 
+            // cBCategoria
+            // 
+            this.cBCategoria.FormattingEnabled = true;
+            this.cBCategoria.Items.AddRange(new object[] {
+            "Carne",
+            "Peixe"});
+            this.cBCategoria.Location = new System.Drawing.Point(143, 174);
+            this.cBCategoria.Name = "cBCategoria";
+            this.cBCategoria.Size = new System.Drawing.Size(100, 23);
+            this.cBCategoria.TabIndex = 16;
+            // 
+            // lbGrauDificuldade
+            // 
+            this.lbGrauDificuldade.AutoSize = true;
+            this.lbGrauDificuldade.Location = new System.Drawing.Point(12, 96);
+            this.lbGrauDificuldade.Name = "lbGrauDificuldade";
+            this.lbGrauDificuldade.Size = new System.Drawing.Size(111, 15);
+            this.lbGrauDificuldade.TabIndex = 11;
+            this.lbGrauDificuldade.Text = "Grau de Dificuldade";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 497);
+            this.Controls.Add(this.cBCategoria);
+            this.Controls.Add(this.cBNumeroPessoas);
+            this.Controls.Add(this.cBGrauDificuldade);
             this.Controls.Add(this.buttonGravar);
             this.Controls.Add(this.lbDescricao);
             this.Controls.Add(this.lbGrauDificuldade);
@@ -164,9 +188,6 @@ namespace Receitas
             this.Controls.Add(this.lbNumeroPessoas);
             this.Controls.Add(this.lbTempoPrep);
             this.Controls.Add(this.lbNome);
-            this.Controls.Add(this.textBoxCategoria);
-            this.Controls.Add(this.textBoxNumeroPessoas);
-            this.Controls.Add(this.textBoxGrauDificuldade);
             this.Controls.Add(this.richTextBoxDesc);
             this.Controls.Add(this.textBoxTempoPrep);
             this.Controls.Add(this.textBoxNome);
@@ -182,16 +203,16 @@ namespace Receitas
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.TextBox textBoxTempoPrep;
         private System.Windows.Forms.RichTextBox richTextBoxDesc;
-        private System.Windows.Forms.TextBox textBoxGrauDificuldade;
-        private System.Windows.Forms.TextBox textBoxNumeroPessoas;
-        private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Label lbTempoPrep;
         private System.Windows.Forms.Label lbNumeroPessoas;
         private System.Windows.Forms.Label lbCategoria;
-        private System.Windows.Forms.Label lbGrauDificuldade;
         private System.Windows.Forms.Label lbDescricao;
         private System.Windows.Forms.Button buttonGravar;
+        private System.Windows.Forms.ComboBox cBGrauDificuldade;
+        private System.Windows.Forms.ComboBox cBNumeroPessoas;
+        private System.Windows.Forms.ComboBox cBCategoria;
+        private System.Windows.Forms.Label lbGrauDificuldade;
     }
 }
 
