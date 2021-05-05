@@ -17,6 +17,12 @@ namespace Receitas
         MySqlCommand comando;
         MySqlDataAdapter da;
         MySqlDataReader dr;
+
+        string server = Properties.Resources.server;
+        string database = Properties.Resources.database;
+        string uid = Properties.Resources.uid;
+        string pass = Properties.Resources.pass;
+
         string strSQL;
         string strSQLSelect;
 
@@ -47,7 +53,7 @@ namespace Receitas
             
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=110688;");
+                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
                 strSQL = "INSERT INTO " +
                     "receitas (NOME, DESCRICAO, tempo_preparacao, grau_dificuldade, numero_pressoas, categoria) " +
                     "values (@NOME, @DESCRICAO,@tempo_preparacao, @grau_dificuldade, @numero_pressoas, @categoria)";
@@ -84,7 +90,7 @@ namespace Receitas
             string strSQL;
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=110688;");
+                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
                 strSQL = "delete from receitas";
                 comando = new MySqlCommand(strSQL, conexao);
                 
@@ -119,11 +125,10 @@ namespace Receitas
             {
                 strSQLSelect = "select id 'ID',nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas";
 
-                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=110688;");
+                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
                 da = new MySqlDataAdapter(strSQLSelect, conexao);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
                 dGVReceitas.DataSource = dt;
             }
             catch(Exception ex)
@@ -136,6 +141,11 @@ namespace Receitas
                 conexao = null;
                 comando = null;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -61,11 +61,38 @@ namespace Receitas.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a teste.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a receitas.
         /// </summary>
-        internal static string prope {
+        internal static string database {
             get {
-                return ResourceManager.GetString("prope", resourceCulture);
+                return ResourceManager.GetString("database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a 140288.
+        /// </summary>
+        internal static string pass {
+            get {
+                return ResourceManager.GetString("pass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a localhost.
+        /// </summary>
+        internal static string server {
+            get {
+                return ResourceManager.GetString("server", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a root.
+        /// </summary>
+        internal static string uid {
+            get {
+                return ResourceManager.GetString("uid", resourceCulture);
             }
         }
     }

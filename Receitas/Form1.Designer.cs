@@ -65,7 +65,7 @@ namespace Receitas
             // 
             this.richTextBoxDesc.Location = new System.Drawing.Point(12, 232);
             this.richTextBoxDesc.Name = "richTextBoxDesc";
-            this.richTextBoxDesc.Size = new System.Drawing.Size(533, 233);
+            this.richTextBoxDesc.Size = new System.Drawing.Size(384, 233);
             this.richTextBoxDesc.TabIndex = 2;
             this.richTextBoxDesc.Text = "";
             // 
@@ -117,9 +117,9 @@ namespace Receitas
             // 
             // buttonGravar
             // 
-            this.buttonGravar.Location = new System.Drawing.Point(470, 471);
+            this.buttonGravar.Location = new System.Drawing.Point(326, 484);
             this.buttonGravar.Name = "buttonGravar";
-            this.buttonGravar.Size = new System.Drawing.Size(75, 23);
+            this.buttonGravar.Size = new System.Drawing.Size(70, 23);
             this.buttonGravar.TabIndex = 13;
             this.buttonGravar.Text = "Gravar";
             this.buttonGravar.UseVisualStyleBackColor = true;
@@ -179,17 +179,17 @@ namespace Receitas
             // dGVReceitas
             // 
             this.dGVReceitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVReceitas.Location = new System.Drawing.Point(564, 51);
+            this.dGVReceitas.Location = new System.Drawing.Point(423, 51);
             this.dGVReceitas.Name = "dGVReceitas";
             this.dGVReceitas.RowTemplate.Height = 25;
-            this.dGVReceitas.Size = new System.Drawing.Size(568, 414);
+            this.dGVReceitas.Size = new System.Drawing.Size(747, 417);
             this.dGVReceitas.TabIndex = 17;
             // 
             // bntLimpar
             // 
-            this.bntLimpar.Location = new System.Drawing.Point(1014, 22);
+            this.bntLimpar.Location = new System.Drawing.Point(1052, 484);
             this.bntLimpar.Name = "bntLimpar";
-            this.bntLimpar.Size = new System.Drawing.Size(118, 23);
+            this.bntLimpar.Size = new System.Drawing.Size(118, 28);
             this.bntLimpar.TabIndex = 18;
             this.bntLimpar.Text = "Limpar Tablela";
             this.bntLimpar.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@ namespace Receitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 497);
+            this.ClientSize = new System.Drawing.Size(1181, 597);
             this.Controls.Add(this.bntLimpar);
             this.Controls.Add(this.dGVReceitas);
             this.Controls.Add(this.cBCategoria);
@@ -217,6 +217,7 @@ namespace Receitas
             this.Controls.Add(this.textBoxNome);
             this.Name = "Form1";
             this.Text = "Receitas";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVReceitas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
