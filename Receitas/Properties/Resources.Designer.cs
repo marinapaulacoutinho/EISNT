@@ -59,5 +59,14 @@ namespace Receitas.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a teste.
+        /// </summary>
+        internal static string prope {
+            get {
+                return ResourceManager.GetString("prope", resourceCulture);
+            }
+        }
     }
 }

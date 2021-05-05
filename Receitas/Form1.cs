@@ -18,6 +18,8 @@ namespace Receitas
         MySqlDataAdapter da;
         MySqlDataReader dr;
         string strSQL;
+        string strSQLSelect;
+
 
         public Form1()
         {
@@ -41,9 +43,10 @@ namespace Receitas
 
         private void buttonGravar_Click(object sender, EventArgs e)
         {
+            
             try
             {
-                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=110688;");
+                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=;");
                 strSQL = "INSERT INTO " +
                     "receitas (NOME, DESCRICAO, tempo_preparacao, grau_dificuldade, numero_pressoas, categoria) " +
                     "values (@NOME, @DESCRICAO,@tempo_preparacao, @grau_dificuldade, @numero_pressoas, @categoria)";
@@ -57,6 +60,15 @@ namespace Receitas
 
                 conexao.Open();
                 comando.ExecuteNonQuery();
+
+                strSQLSelect = "select nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas";
+
+                da = new MySqlDataAdapter(strSQLSelect, conexao);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dGVReceitas.DataSource = dt;
+
             }
             catch(Exception ex)
             {
@@ -69,6 +81,40 @@ namespace Receitas
                 comando = null;
             }
 
+        }
+
+        private void bntLimpar_Click(object sender, EventArgs e)
+        {
+            string strSQL;
+            try
+            {
+                conexao = new MySqlConnection("Server=localhost;Database=receitas;Uid=root;Pwd=110688;");
+                strSQL = "delete from receitas";
+                comando = new MySqlCommand(strSQL, conexao);
+                
+
+                conexao.Open();
+                comando.ExecuteNonQuery();
+
+                strSQLSelect = "select nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas";
+
+                da = new MySqlDataAdapter(strSQLSelect, conexao);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dGVReceitas.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+                conexao = null;
+                comando = null;
+            }
         }
     }
 }

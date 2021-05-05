@@ -42,6 +42,9 @@ namespace Receitas
             this.cBNumeroPessoas = new System.Windows.Forms.ComboBox();
             this.cBCategoria = new System.Windows.Forms.ComboBox();
             this.lbGrauDificuldade = new System.Windows.Forms.Label();
+            this.dGVReceitas = new System.Windows.Forms.DataGridView();
+            this.bntLimpar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVReceitas)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNome
@@ -114,7 +117,7 @@ namespace Receitas
             // 
             // buttonGravar
             // 
-            this.buttonGravar.Location = new System.Drawing.Point(470, 15);
+            this.buttonGravar.Location = new System.Drawing.Point(470, 471);
             this.buttonGravar.Name = "buttonGravar";
             this.buttonGravar.Size = new System.Drawing.Size(75, 23);
             this.buttonGravar.TabIndex = 13;
@@ -173,11 +176,32 @@ namespace Receitas
             this.lbGrauDificuldade.TabIndex = 11;
             this.lbGrauDificuldade.Text = "Grau de Dificuldade";
             // 
+            // dGVReceitas
+            // 
+            this.dGVReceitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVReceitas.Location = new System.Drawing.Point(564, 51);
+            this.dGVReceitas.Name = "dGVReceitas";
+            this.dGVReceitas.RowTemplate.Height = 25;
+            this.dGVReceitas.Size = new System.Drawing.Size(568, 414);
+            this.dGVReceitas.TabIndex = 17;
+            // 
+            // bntLimpar
+            // 
+            this.bntLimpar.Location = new System.Drawing.Point(1014, 22);
+            this.bntLimpar.Name = "bntLimpar";
+            this.bntLimpar.Size = new System.Drawing.Size(118, 23);
+            this.bntLimpar.TabIndex = 18;
+            this.bntLimpar.Text = "Limpar Tablela";
+            this.bntLimpar.UseVisualStyleBackColor = true;
+            this.bntLimpar.Click += new System.EventHandler(this.bntLimpar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 497);
+            this.Controls.Add(this.bntLimpar);
+            this.Controls.Add(this.dGVReceitas);
             this.Controls.Add(this.cBCategoria);
             this.Controls.Add(this.cBNumeroPessoas);
             this.Controls.Add(this.cBGrauDificuldade);
@@ -193,6 +217,7 @@ namespace Receitas
             this.Controls.Add(this.textBoxNome);
             this.Name = "Form1";
             this.Text = "Receitas";
+            ((System.ComponentModel.ISupportInitialize)(this.dGVReceitas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,6 +238,8 @@ namespace Receitas
         private System.Windows.Forms.ComboBox cBNumeroPessoas;
         private System.Windows.Forms.ComboBox cBCategoria;
         private System.Windows.Forms.Label lbGrauDificuldade;
+        private System.Windows.Forms.DataGridView dGVReceitas;
+        private System.Windows.Forms.Button bntLimpar;
     }
 }
 
