@@ -207,7 +207,7 @@ namespace Receitas
             this.bntBuscar.Name = "bntBuscar";
             this.bntBuscar.Size = new System.Drawing.Size(75, 23);
             this.bntBuscar.TabIndex = 20;
-            this.bntBuscar.Text = "Buscar";
+            this.bntBuscar.Text = "Filtrar";
             this.bntBuscar.UseVisualStyleBackColor = true;
             this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
@@ -215,15 +215,16 @@ namespace Receitas
             // 
             this.txtBuscar.Location = new System.Drawing.Point(423, 21);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.PlaceholderText = "Nome";
+            this.txtBuscar.PlaceholderText = "Nome da receita";
             this.txtBuscar.Size = new System.Drawing.Size(208, 23);
             this.txtBuscar.TabIndex = 21;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // txtEliminar
             // 
             this.txtEliminar.Location = new System.Drawing.Point(751, 21);
             this.txtEliminar.Name = "txtEliminar";
-            this.txtEliminar.PlaceholderText = "ID da Receita";
+            this.txtEliminar.PlaceholderText = "ID da receita";
             this.txtEliminar.Size = new System.Drawing.Size(100, 23);
             this.txtEliminar.TabIndex = 23;
             // 

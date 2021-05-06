@@ -24,7 +24,6 @@ namespace Receitas
         string pass = Properties.Resources.pass;
 
         string strSQL;
-        string strSQLSelect;
 
 
         public Form1()
@@ -100,10 +99,10 @@ namespace Receitas
         {
             try
             {
-                strSQLSelect = "select id 'ID',nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas";
+                strSQL = "select id 'ID',nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas";
 
                 conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
-                da = new MySqlDataAdapter(strSQLSelect, conexao);
+                da = new MySqlDataAdapter(strSQL, conexao);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dGVReceitas.DataSource = dt;
@@ -129,10 +128,10 @@ namespace Receitas
         {
             try
             {
-                string strSQLBuscar = "select id 'ID',nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas where nome like '%@nome%'";
+                strSQL = $"select id 'ID',nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas where nome like '%{txtBuscar.Text}%'";
 
                 conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
-                da = new MySqlDataAdapter(strSQLBuscar, conexao);
+                da = new MySqlDataAdapter(strSQL, conexao);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dGVReceitas.DataSource = dt;
@@ -201,6 +200,11 @@ namespace Receitas
                 comando = null;
                 Show_list();
             }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
