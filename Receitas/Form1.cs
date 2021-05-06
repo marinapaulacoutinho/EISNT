@@ -85,31 +85,6 @@ namespace Receitas
 
         }
 
-        private void bntLimpar_Click(object sender, EventArgs e)
-        {
-            string strSQL;
-            try
-            {
-                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
-                strSQL = "delete from receitas";
-                comando = new MySqlCommand(strSQL, conexao);
-                
-                conexao.Open();
-                comando.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conexao.Close();
-                conexao = null;
-                comando = null;
-                Show_list();
-            }
-        }
         private void Clear_Inputs()
         {
             textBoxNome.Clear();
@@ -118,6 +93,8 @@ namespace Receitas
             cBGrauDificuldade.SelectedIndex = -1;
             cBNumeroPessoas.SelectedIndex = -1;
             cBCategoria.SelectedIndex = -1;
+            txtEliminar.Clear();
+            txtBuscar.Clear();
         }
         private void Show_list() 
         {
@@ -146,6 +123,84 @@ namespace Receitas
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bntBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strSQLBuscar = "select id 'ID',nome 'Nome', tempo_preparacao 'Tempo de Preparacao', grau_dificuldade 'Grau de dificuldade', numero_pressoas 'Numero de pessoas', categoria 'Categoria' from receitas where nome like '%@nome%'";
+
+                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
+                da = new MySqlDataAdapter(strSQLBuscar, conexao);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dGVReceitas.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+                conexao = null;
+                comando = null;
+            }
+
+        }
+
+        private void bntEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
+                strSQL = "delete from receitas where id = @id";
+                comando = new MySqlCommand(strSQL, conexao);
+                comando.Parameters.AddWithValue("@id", txtEliminar.Text);
+
+                conexao.Open();
+                comando.ExecuteNonQuery();
+
+                Clear_Inputs();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+                conexao = null;
+                comando = null;
+                Show_list();
+            }
+        }
+
+        private void bntLimpar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                conexao = new MySqlConnection($"Server={server};Database={database};Uid={uid};Pwd={pass};");
+                strSQL = "TRUNCATE TABLE receitas";
+                comando = new MySqlCommand(strSQL, conexao);
+
+                conexao.Open();
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+                conexao = null;
+                comando = null;
+                Show_list();
+            }
         }
     }
 }
